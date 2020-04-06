@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Pull Day 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Pull Day 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+
+    <ion-item positon="stacked">
+      <ion-label>
+        <h2>Barbell Deadlift</h2>
+        <p>Sets: 0/3</p>
+      </ion-label>
+      <ion-icon (click)="presentModal()" name="add-outline"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h2>Wide Grip Lat Pulldown</h2>
+        <p>Sets: 0/3</p>
+      </ion-label>
+      <ion-icon (click)="presentModal()" name="add-outline"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h2>Wide Grip Lat Pulldown</h2>
+        <p>Sets: 0/3</p>
+      </ion-label>
+      <ion-icon (click)="presentModal()" name="add-outline"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h2>Cable Seated Rows</h2>
+        <p>Sets: 0/3</p>
+      </ion-label>
+      <ion-icon (click)="presentModal()" name="add-outline"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h2>Dumbell Hammer Curls</h2>
+        <p>Sets: 0/3</p>
+      </ion-label>
+      <ion-icon (click)="presentModal()" slot="end" name="add-outline"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h2>Dumbell Bicep Curls</h2>
+        <p>Sets: 0/3</p>
+      </ion-label>
+      <ion-icon (click)="presentModal()" name="add-outline"></ion-icon>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

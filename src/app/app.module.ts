@@ -9,12 +9,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { WorkoutPageModule} from './workout/workout.module';
+import { ExercisePageModule} from './exercise/exercise.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, WorkoutPageModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ExercisePageModule],
   providers: [
     StatusBar,
     SplashScreen,

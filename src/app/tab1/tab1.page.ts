@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 // import { WorkoutPageModule } from '../workout/workout.module'
-import {ModalController } from '@ionic/angular'
-import { WorkoutPage } from '../workout/workout.page';
+// import {ModalController } from '@ionic/angular'
+// import { WorkoutPage } from '../workout/workout.page';
 
 @Component({
   selector: 'app-tab1',
@@ -10,18 +10,18 @@ import { WorkoutPage } from '../workout/workout.page';
 })
 export class Tab1Page {
 
-  constructor(private modalController:ModalController) {}
+  constructor() {}
 
-  async presentModal(){
-    const modal = await this.modalController.create({
-    component: WorkoutPage,
-    componentProps: {}
-    });
+  // async presentModal(){
+  //   const modal = await this.modalController.create({
+  //   component: WorkoutPage,
+  //   componentProps: {}
+  //   });
 
-    modal.onDidDismiss()
-    .then((retval) => {});
+  //   modal.onDidDismiss()
+  //   .then((retval) => {});
 
-    return modal.present();
-    }
+  //   return modal.present();
+  //   }
 
 }
