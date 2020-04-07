@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ExercisePageModule } from '../exercise/exercise.module'
 import {ModalController } from '@ionic/angular'
 import { ExercisePage } from '../exercise/exercise.page';
 

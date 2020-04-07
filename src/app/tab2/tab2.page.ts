@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {ModalController } from '@ionic/angular'
+import { ExerciseInstructionPage } from '../exercise-instruction/exercise-instruction.page';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,17 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(private modalController:ModalController) {}
 
+  async presentModal(){
+    const modal = await this.modalController.create({
+    component: ExerciseInstructionPage,
+    componentProps: {}
+    });
+
+    modal.onDidDismiss()
+    .then((retval) => {});
+
+    return modal.present();
+    }
 }
