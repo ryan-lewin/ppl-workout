@@ -22,7 +22,6 @@
   </ion-item>
 
   <ion-list>
-
     <ion-item *ngFor="let exercise of exercises; index as i">
       <ion-label>
         <h2>{{exercise.name}}</h2>
@@ -31,6 +30,8 @@
       </ion-label>
       <ion-icon (click)="presentModal(i)" name="add-outline"></ion-icon>
     </ion-item>
-
   </ion-list>
+
+  <ion-button class="ion-margin" expand="block" routerLink="/tab1">Finish Workout</ion-button>
+
 </ion-content>

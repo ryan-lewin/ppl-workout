@@ -26,7 +26,6 @@ export class ExercisePage implements OnInit {
 
   addSet(){
     this.exercises[this.index].sets.push({number: this.exercises[this.index].sets.length + 1, weight: 0, reps: 0})
-    console.log(this.index)
   }
 
   deleteSet(index) {

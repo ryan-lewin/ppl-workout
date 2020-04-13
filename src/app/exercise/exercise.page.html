@@ -11,10 +11,10 @@
 
   <ion-item-sliding *ngFor="let set of this.exercises[this.index].sets; index as i">
     <ion-item>
-      <h6>Set {{set.number}}</h6>
-      <ion-label position="stacked">Weight (kg)</ion-label>
+      <ion-label slot="start" class="padding-right">Set {{set.number}}</ion-label>
+      <ion-label>Weight (kg)</ion-label>
       <ion-input required type="number" value={{set.weight}}></ion-input>
-      <ion-label position="stacked">Reps</ion-label>
+      <ion-label>Reps</ion-label>
       <ion-input required type="number" value={{set.reps}}></ion-input>
     </ion-item>
     <ion-item-options side="end">
@@ -23,6 +23,6 @@
   </ion-item-sliding>
 
   <ion-button (click)="addSet(i)" class="ion-margin" expand="block">New Set</ion-button>
-  <ion-button class="ion-margin" expand="block">Complete exercise</ion-button>
+  <ion-button (click)="closeModal()" class="ion-margin" expand="block">Complete exercise</ion-button>
 
 </ion-content>

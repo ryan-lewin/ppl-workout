@@ -13,7 +13,7 @@ import { WorkoutPagePage } from './workout-page.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    WorkoutPagePageRoutingModule
+    WorkoutPagePageRoutingModule,
   ],
   declarations: [WorkoutPagePage]
 })

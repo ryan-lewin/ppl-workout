@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-// import { WorkoutPageModule } from '../workout/workout.module'
-// import {ModalController } from '@ionic/angular'
-// import { WorkoutPage } from '../workout/workout.page';
 
 @Component({
   selector: 'app-tab1',
