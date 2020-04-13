@@ -27,4 +27,10 @@ export class ExercisePage implements OnInit {
     this.sets.push({number: this.sets.length + 1, weight: 0, reps: 0})
   }
 
+  deleteSet(index) {
+    if (confirm(`Are you sure you want to remove set ${this.sets[index].number } form your workout?`)) {
+      this.sets.splice(index, 1);
+    }
+  }
+
 }
