@@ -8,33 +8,21 @@
 </ion-header>
 
 <ion-content>
-
+  
   <ion-item>
-    <h6>Set 1</h6>
+      <ion-label>Date</ion-label>
+      <ion-datetime value="2019-10-01T15:43:40.394Z" display-timezone="utc"></ion-datetime>
+  </ion-item>
+
+  <ion-item *ngFor="let set of sets">
+    <h6>Set {{set.number}}</h6>
     <ion-label position="stacked">Weight (kg)</ion-label>
-    <ion-input required type="number"></ion-input>
+    <ion-input required type="number" value={{set.weight}}></ion-input>
     <ion-label position="stacked">Reps</ion-label>
-    <ion-input required type="number"></ion-input>
+    <ion-input required type="number" value={{set.reps}}></ion-input>
   </ion-item>
 
-  <ion-item>
-    <h6>Set 2</h6>
-    <ion-label position="floating">Weight (kg)</ion-label>
-    <ion-input required type="number"></ion-input>
-    <ion-label position="stacked">Reps</ion-label>
-    <ion-input required type="number"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <h6>Set 3</h6>
-    <ion-label position="stacked">Weight (kg)</ion-label>
-    <ion-input required type="number"></ion-input>
-    <ion-label position="stacked">Reps</ion-label>
-    <ion-input required type="number"></ion-input>
-  </ion-item>
-
-
-  <ion-button class="ion-margin" expand="block">New Set</ion-button>
+  <ion-button (click)="addSet()" class="ion-margin" expand="block">New Set</ion-button>
   <ion-button class="ion-margin" expand="block">Complete exercise</ion-button>
 
 </ion-content>
