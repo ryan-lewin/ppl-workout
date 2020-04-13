@@ -36,4 +36,8 @@ export class WorkoutPagePage implements OnInit {
     return modal.present();
     }
 
+    logWorkout(){
+      alert('Workout has been logged')
+    }
+
 }
