@@ -14,50 +14,10 @@
   </ion-header>
   <ion-list>
 
-    <ion-item routerLink="/workout-page">
+    <ion-item *ngFor="let workout of workouts" routerLink="/workout-page">
       <ion-label>
-        <h2>Pull 1</h2>
-        <p><span>Last Completed:</span> 01/01/2020</p>
-      </ion-label>
-      <ion-icon name="arrow-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item routerLink="/workout-page">
-      <ion-label>
-        <h2>Push 1</h2>
-        <p><span>Last Completed:</span> 01/01/2020</p>
-      </ion-label>
-      <ion-icon name="arrow-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item routerLink="/workout-page">
-      <ion-label>
-        <h2>Legs 1</h2>
-        <p><span>Last Completed:</span> 01/01/2020</p>
-      </ion-label>
-      <ion-icon name="arrow-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item routerLink="/workout-page">
-      <ion-label>
-        <h2>Pull 2</h2>
-        <p><span>Last Completed:</span> 01/01/2020</p>
-      </ion-label>
-      <ion-icon name="arrow-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item routerLink="/workout-page">
-      <ion-label>
-        <h2>Push 2</h2>
-        <p><span>Last Completed:</span> 01/01/2020</p>
-      </ion-label>
-      <ion-icon name="arrow-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item routerLink="/workout-page">
-      <ion-label>
-        <h2>Legs 2</h2>
-        <p><span>Last Completed:</span> 01/01/2020</p>
+        <h2>{{ workout.workout }}</h2>
+        <p><span>Last Completed:</span>{{ workout.date }}</p>
       </ion-label>
       <ion-icon name="arrow-forward-outline"></ion-icon>
     </ion-item>

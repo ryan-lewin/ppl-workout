@@ -12,16 +12,13 @@ export class Tab1Page {
 
   constructor() {}
 
-  // async presentModal(){
-  //   const modal = await this.modalController.create({
-  //   component: WorkoutPage,
-  //   componentProps: {}
-  //   });
-
-  //   modal.onDidDismiss()
-  //   .then((retval) => {});
-
-  //   return modal.present();
-  //   }
+  workouts = [
+    {workout: 'Push 1', date: '01/01/2020'},
+    {workout: 'Pull 1', date: '01/01/2020'},
+    {workout: 'Legs 1', date: '01/01/2020'},
+    {workout: 'Push 2', date: '01/01/2020'},
+    {workout: 'Pull 2', date: '01/01/2020'},
+    {workout: 'Legs 2', date: '01/01/2020'},
+  ]
 
 }

@@ -11,6 +11,8 @@ export class Tab2Page {
 
   constructor(private modalController:ModalController) {}
 
+  numbers = Array(30).fill(0).map((x,i)=>i);
+
   async presentModal(){
     const modal = await this.modalController.create({
     component: ExerciseInstructionPage,

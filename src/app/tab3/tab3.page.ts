@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
 export class Tab3Page {
 
   constructor() {}
-
+  
+    numbers = Array(30).fill(0).map((x,i)=>i);
 }
