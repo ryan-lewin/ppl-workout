@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NavParams, ModalController} from '@ionic/angular'
+import { VirtualTimeScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-exercise',
@@ -10,26 +11,27 @@ export class ExercisePage implements OnInit {
 
   constructor(private navParams:NavParams, private modalController:ModalController) { }
 
-  sets = [
-    {number: 1, weight: 0, reps: 0},
-    {number: 2, weight: 0, reps: 0},
-    {number: 3, weight: 0, reps: 0}
-  ]
+  exercises = []
+  index: number;
 
   ngOnInit() {
+    this.exercises = this.navParams.get('exercises')
+    this.index = this.navParams.get('index')
   }
 
   closeModal(){
+    this.exercises[this.index].complete = true
     this.modalController.dismiss();
     }
 
   addSet(){
-    this.sets.push({number: this.sets.length + 1, weight: 0, reps: 0})
+    this.exercises[this.index].sets.push({number: this.exercises[this.index].sets.length + 1, weight: 0, reps: 0})
+    console.log(this.index)
   }
 
   deleteSet(index) {
-    if (confirm(`Are you sure you want to remove set ${this.sets[index].number } form your workout?`)) {
-      this.sets.splice(index, 1);
+    if (confirm(`Are you sure you want to remove set ${this.exercises[this.index].sets.number } form your workout?`)) {
+      this.exercises[this.index].sets.splice(index, 1);
     }
   }
 

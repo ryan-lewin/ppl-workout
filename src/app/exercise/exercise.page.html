@@ -8,13 +8,8 @@
 </ion-header>
 
 <ion-content>
-  
-  <ion-item>
-      <ion-label>Date</ion-label>
-      <ion-datetime value="2019-10-01T15:43:40.394Z" display-timezone="utc"></ion-datetime>
-  </ion-item>
 
-  <ion-item-sliding *ngFor="let set of sets; index as i">
+  <ion-item-sliding *ngFor="let set of this.exercises[this.index].sets; index as i">
     <ion-item>
       <h6>Set {{set.number}}</h6>
       <ion-label position="stacked">Weight (kg)</ion-label>
@@ -27,7 +22,7 @@
     </ion-item-options>
   </ion-item-sliding>
 
-  <ion-button (click)="addSet()" class="ion-margin" expand="block">New Set</ion-button>
+  <ion-button (click)="addSet(i)" class="ion-margin" expand="block">New Set</ion-button>
   <ion-button class="ion-margin" expand="block">Complete exercise</ion-button>
 
 </ion-content>

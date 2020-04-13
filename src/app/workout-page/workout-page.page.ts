@@ -11,13 +11,23 @@ export class WorkoutPagePage implements OnInit {
 
   constructor(private modalController:ModalController) { }
 
+  exercises = [
+    {name: 'Barbell Deadlift', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false},
+    {name: 'Wide Grip Lat Pulldown', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false},
+    {name: 'Cable Seated Row', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false},
+    {name: 'Dumbbell Hammer Curl', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false},
+    {name: 'Dumbbell Bicep Curl', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false},
+  ]
+
+  index: number;
+
   ngOnInit() {
   }
 
-    async presentModal(){
-    const modal = await this.modalController.create({
-    component: ExercisePage,
-    componentProps: {}
+    async presentModal(i){
+      const modal = await this.modalController.create({
+      component: ExercisePage,
+      componentProps: {exercises: this.exercises, index: i}
     });
 
     modal.onDidDismiss()
