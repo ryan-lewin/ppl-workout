@@ -20,6 +20,7 @@ export class WorkoutPagePage implements OnInit {
   ]
 
   index: number;
+  date = new Date();
 
 
   ngOnInit() {
@@ -28,7 +29,7 @@ export class WorkoutPagePage implements OnInit {
     async presentModal(i){
       const modal = await this.modalController.create({
       component: ExercisePage,
-      componentProps: {exercises: this.exercises, index: i, totalWeight: this.totalWeight, maxRep: this.maxRep}
+      componentProps: {exercises: this.exercises, index: i}
     });
 
     modal.onDidDismiss()
