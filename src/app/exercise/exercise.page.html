@@ -13,8 +13,7 @@
     <ion-item>
       <ion-label slot="start" class="padding-right">Set {{set.number}}</ion-label>
       <ion-label>Weight (kg)</ion-label>
-      <!-- <ion-input required type="number" value={{set.weight}}></ion-input> -->
-      <ion-input required type="number" [(ngModel)]="set.weight" name="set.weight"></ion-input>
+      <ion-input required type="number" [(ngModel)]="set.weight" name="set.weight" max="2000"></ion-input>
       <ion-label>Reps</ion-label>
       <ion-input required type="number" [(ngModel)]="set.reps" name="set.reps"></ion-input>
     </ion-item>
