@@ -19,7 +19,25 @@ export class ExercisePage implements OnInit {
     this.index = this.navParams.get('index')
   }
 
+  calculateMaxRep(sets){
+    let highest: number = 0;
+    sets.forEach(element => {
+      if(element.weight > highest) {highest = element.weight}
+    });
+    return Math.round((highest*1.1307) + 0.6998)
+  }
+
+  calculateTotalWeight(sets){
+    let sum: number = 0;
+    sets.forEach(element => {
+      sum += element.weight * element.reps
+    });
+    return sum
+  }
+
   closeModal(){
+    this.exercises[this.index].maxRep = this.calculateMaxRep(this.exercises[this.index].sets)
+    this.exercises[this.index].totalWeight = this.calculateTotalWeight(this.exercises[this.index].sets)
     this.exercises[this.index].complete = true
     this.modalController.dismiss();
     }

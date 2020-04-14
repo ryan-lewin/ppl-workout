@@ -12,14 +12,15 @@ export class WorkoutPagePage implements OnInit {
   constructor(private modalController:ModalController) { }
 
   exercises = [
-    {name: 'Barbell Deadlift', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false},
-    {name: 'Wide Grip Lat Pulldown', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false},
-    {name: 'Cable Seated Row', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false},
-    {name: 'Dumbbell Hammer Curl', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false},
-    {name: 'Dumbbell Bicep Curl', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false},
+    {name: 'Barbell Deadlift', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false, totalWeight: 0, maxRep: 0},
+    {name: 'Wide Grip Lat Pulldown', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false, totalWeight: 0, maxRep: 0},
+    {name: 'Cable Seated Row', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false, totalWeight: 0, maxRep: 0},
+    {name: 'Dumbbell Hammer Curl', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false, totalWeight: 0, maxRep: 0},
+    {name: 'Dumbbell Bicep Curl', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false, totalWeight: 0, maxRep: 0},
   ]
 
   index: number;
+
 
   ngOnInit() {
   }
@@ -27,7 +28,7 @@ export class WorkoutPagePage implements OnInit {
     async presentModal(i){
       const modal = await this.modalController.create({
       component: ExercisePage,
-      componentProps: {exercises: this.exercises, index: i}
+      componentProps: {exercises: this.exercises, index: i, totalWeight: this.totalWeight, maxRep: this.maxRep}
     });
 
     modal.onDidDismiss()

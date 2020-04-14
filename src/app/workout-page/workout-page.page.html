@@ -27,6 +27,8 @@
         <h2>{{exercise.name}}</h2>
         <p *ngIf="exercise.complete; else showZero">Sets: {{exercise.sets.length}}/3</p>
         <ng-template #showZero><p>Sets: 0/3</p></ng-template>
+        <p>1RM: {{exercise.maxRep}}kg</p>
+        <p>Total Weight: {{exercise.totalWeight}}kg</p>
       </ion-label>
       <ion-icon (click)="presentModal(i)" name="add-outline"></ion-icon>
     </ion-item>
