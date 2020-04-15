@@ -11,8 +11,13 @@ export class Tab2Page {
 
   constructor(private modalController:ModalController) {}
 
+  // Initialises array with numbers ranging to 30 - Used in view to simulate dummy data
   numbers = Array(30).fill(0).map((x,i)=>i);
 
+  /**
+  * Opens exercise instruction modal - passes nothing through using component props
+  * Params:
+  */
   async presentModal(){
     const modal = await this.modalController.create({
     component: ExerciseInstructionPage,

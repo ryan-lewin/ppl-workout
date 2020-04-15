@@ -13,6 +13,10 @@ export class ExerciseInstructionPage implements OnInit {
   ngOnInit() {
   }
 
+/**
+* Closes modal and returns to previous page
+* Params:
+*/
   closeModal(){
     this.modalController.dismiss();
     }

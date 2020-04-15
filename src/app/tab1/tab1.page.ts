@@ -9,6 +9,7 @@ export class Tab1Page {
 
   constructor() {}
 
+// Initialises array of dummy data to display workouts to view
   workouts = [
     {workout: 'Push 1', date: '01/01/2020'},
     {workout: 'Pull 1', date: '01/01/2020'},

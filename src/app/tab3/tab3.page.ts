@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class Tab3Page {
 
   constructor() {}
-  
+
+    // Intialises array with that ranges to 30 - To simulate dummy data in view
     numbers = Array(30).fill(0).map((x,i)=>i);
 }
