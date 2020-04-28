@@ -24,7 +24,7 @@ export class ExercisePage implements OnInit {
   * Params:
   */
   ngOnInit() {
-    this.exercise = this.navParams.get('exercises')
+    this.exercise = this.navParams.get('exercise')
     this.sets = this.exercise.sets
     // this.index = this.navParams.get('index')
     console.log(this.exercise)
@@ -37,7 +37,7 @@ export class ExercisePage implements OnInit {
   calculateMaxRep(sets){
     let highest: number = 0;
     sets.forEach(element => {
-      if(element.weight > highest) {highest = element.weight}
+      if(element.value > highest) {highest = element.value}
     });
     return Math.round((highest*1.1307) + 0.6998)
   }
@@ -49,7 +49,7 @@ export class ExercisePage implements OnInit {
   calculateTotalWeight(sets){
     let sum: number = 0;
     sets.forEach(element => {
-      sum += element.weight * element.reps
+      sum += element.value * element.reps
     });
     return sum
   }
@@ -59,9 +59,14 @@ export class ExercisePage implements OnInit {
   * Params:
   */
   closeModal(){
+    // console.log(this.exercise)
+    // console.log(this.exercise.maxRep = this.calculateMaxRep(this.sets))
+    // console.log(this.calculateTotalWeight(this.sets))
+    this.exercise.sets = this.sets
+    this.exercise.maxRep = this.exercise.maxRep = this.calculateMaxRep(this.sets)
+    this.exercise.totalWeight = this.calculateTotalWeight(this.sets)
     console.log(this.exercise)
-    // console.log(this.exercise.maxRep = this.calculateMaxRep(this.exercise.sets))
-    // this.modalController.dismiss();
+    this.modalController.dismiss(this.exercise);
     }
 
   /**

@@ -29,6 +29,8 @@ export class WorkoutPagePage implements OnInit {
   exercises;
   sessionExercises;
 
+  testEx;
+
   constructor(
     private modalController:ModalController, private storage: Storage, private route: ActivatedRoute) { }
 
@@ -57,11 +59,14 @@ export class WorkoutPagePage implements OnInit {
   async presentModal(i){
     const modal = await this.modalController.create({
     component: ExercisePage,
-    componentProps: {exercises: this.sessionExercises[i], index: i}
+    componentProps: {exercise: this.sessionExercises[i], index: i}
   });
 
     modal.onDidDismiss()
-    .then((retval) => {});
+    .then((retval) => {
+      this.testEx = retval.data
+      console.log("testEx", this.testEx)
+    });
 
     return modal.present();
   }
