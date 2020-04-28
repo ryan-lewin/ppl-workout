@@ -22,13 +22,10 @@
   </ion-item>
 
   <ion-list>
-    <ion-item *ngFor="let exercise of exercises; index as i">
+    <ion-item *ngFor="let exercise of sessionExercises; index as i">
       <ion-label>
-        <h2>{{exercise.name}}</h2>
-        <p *ngIf="exercise.complete; else showZero">Sets: {{exercise.sets.length}}/3</p>
-        <ng-template #showZero><p>Sets: 0/3</p></ng-template>
-        <p>1RM: {{exercise.maxRep}}kg</p>
-        <p>Total Weight: {{exercise.totalWeight}}kg</p>
+        <h2>{{exercise.title}}</h2>
+        <p> Do 3 sets of 12 reps</p>
       </ion-label>
       <ion-icon (click)="presentModal(i)" name="add-outline"></ion-icon>
     </ion-item>

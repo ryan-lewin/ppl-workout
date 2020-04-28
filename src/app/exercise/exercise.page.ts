@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NavParams, ModalController} from '@ionic/angular'
 import { VirtualTimeScheduler } from 'rxjs';
+import { Storage } from '@ionic/storage'
 
 @Component({
   selector: 'app-exercise',
@@ -9,20 +10,24 @@ import { VirtualTimeScheduler } from 'rxjs';
 })
 export class ExercisePage implements OnInit {
 
-  constructor(private navParams:NavParams, private modalController:ModalController) { }
+  constructor(private navParams:NavParams, private modalController:ModalController, private storage: Storage) { }
 
   //Initialises empty array that will take the exercises array passed from previous page
-  exercises = []
+  exercise;
+  sets = [];
+  num = 0;
   //Initialises empty number var that will take the index var passed from previous page
-  index: number;
+  // index;
 
   /**
   * Initialises exercises and index with values passed from workout-page
   * Params:
   */
   ngOnInit() {
-    this.exercises = this.navParams.get('exercises')
-    this.index = this.navParams.get('index')
+    this.exercise = this.navParams.get('exercises')
+    this.sets = this.exercise.sets
+    // this.index = this.navParams.get('index')
+    console.log(this.exercise)
   }
 
   /**
@@ -54,10 +59,9 @@ export class ExercisePage implements OnInit {
   * Params:
   */
   closeModal(){
-    this.exercises[this.index].maxRep = this.calculateMaxRep(this.exercises[this.index].sets)
-    this.exercises[this.index].totalWeight = this.calculateTotalWeight(this.exercises[this.index].sets)
-    this.exercises[this.index].complete = true
-    this.modalController.dismiss();
+    console.log(this.exercise)
+    // console.log(this.exercise.maxRep = this.calculateMaxRep(this.exercise.sets))
+    // this.modalController.dismiss();
     }
 
   /**
@@ -65,7 +69,8 @@ export class ExercisePage implements OnInit {
   * Params:
   */
   addSet(){
-    this.exercises[this.index].sets.push({number: this.exercises[this.index].sets.length + 1, weight: 0, reps: 0})
+    this.exercise.sets.push({value: 0, reps: 0})
+    console.log(this.exercise)
   }
 
   /**
@@ -73,8 +78,8 @@ export class ExercisePage implements OnInit {
   * Params:
   */
   deleteSet(index) {
-    if (confirm(`Are you sure you want to remove set ${this.exercises[this.index].sets.number } form your workout?`)) {
-      this.exercises[this.index].sets.splice(index, 1);
+    if (confirm(`Are you sure you want to remove set ${this.exercise.sets[index]} form your workout?`)) {
+      this.exercise.sets.splice(index, 1);
     }
   }
 
