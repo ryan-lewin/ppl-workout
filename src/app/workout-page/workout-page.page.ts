@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ModalController } from '@ionic/angular'
 import { ExercisePage } from '../exercise/exercise.page';
+import { Storage } from '@ionic/storage'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-workout-page',
@@ -8,8 +10,6 @@ import { ExercisePage } from '../exercise/exercise.page';
   styleUrls: ['./workout-page.page.scss'],
 })
 export class WorkoutPagePage implements OnInit {
-
-  constructor(private modalController:ModalController) { }
 
   // Initialises array of dummy data to be used in the view in place of DB
   exercises = [
@@ -24,9 +24,14 @@ export class WorkoutPagePage implements OnInit {
   index: number;
   // Initialises current date
   date = new Date();
+  workout;
 
+  constructor(
+    private modalController:ModalController, private storage: Storage, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.workout = this.route.snapshot.paramMap.get('workout')
+    alert(this.workout)
   }
 
 /**

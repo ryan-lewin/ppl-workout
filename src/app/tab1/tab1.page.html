@@ -14,10 +14,10 @@
   </ion-header>
   <ion-list>
 
-    <ion-item *ngFor="let workout of workouts" routerLink="/workout-page">
+    <ion-item *ngFor="let workout of workouts" routerLink="/workout-page/{{workout.title}}">
       <ion-label>
-        <h2>{{ workout.workout }}</h2>
-        <p><span>Last Completed:</span>{{ workout.date }}</p>
+        <h2>{{ workout.title }}</h2>
+        <p><span>Last Completed: </span>{{ workout.lastCompleted }}</p>
       </ion-label>
       <ion-icon name="arrow-forward-outline"></ion-icon>
     </ion-item>
