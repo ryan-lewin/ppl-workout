@@ -20,6 +20,7 @@ export class Tab3Page {
   label;
   dates;
   maxes;
+  selection;
 
   data = [100, 90, 50, 100, 70, 60, 90]
   labels = [0, 1, 2, 3, 4, 5, 6]
@@ -27,14 +28,14 @@ export class Tab3Page {
   async ngOnInit() {
     this.exercises = await this.storage.get("exercises")
     this.sessionHistory = await this.storage.get("sessionHistory")
-    this.label = this.exercises[0].repMax
-    console.log(this.exercises[0])
-    this.dates = this.label.map(element => element.date)
-    this.maxes = this.label.map(element => element.max)
-    // console.log(this.dates)
-    // console.log(this.maxes)
-    // console.log(this.label)
-    this.chart = new Chart(this.canvas.nativeElement, {
+    this.makeChart('Deadlift')
+  }
+
+  async makeChart(exerciseTitle) {
+    this.label = await this.exercises.filter(obj => {return obj.title === exerciseTitle})
+    this.dates = await this.label[0].repMax.map(element => element.date)
+    this.maxes = await this.label[0].repMax.map(element => element.max)
+    this.chart = await new Chart(this.canvas.nativeElement, {
       type: 'line',
       data: {
         labels: this.dates,
@@ -49,8 +50,4 @@ export class Tab3Page {
     })
   }
 
-
-
-    // Intialises array with that ranges to 30 - To simulate dummy data in view
-    // numbers = Array(30).fill(0).map((x,i)=>i);
 }

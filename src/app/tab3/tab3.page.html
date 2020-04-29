@@ -19,7 +19,7 @@
     </ion-card-header>
     <ion-card-content>
       <ion-label>Choose Exercise: </ion-label>
-      <ion-select interface="action-sheet" placeholder="Select from list">
+      <ion-select (ionChange)="makeChart($event.detail.value)" interface="action-sheet" placeholder="Select from list">
         <ion-select-option *ngFor="let exercise of exercises">{{exercise.title}}</ion-select-option>
       </ion-select>
     </ion-card-content>
