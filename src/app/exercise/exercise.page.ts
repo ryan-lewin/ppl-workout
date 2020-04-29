@@ -26,8 +26,6 @@ export class ExercisePage implements OnInit {
   ngOnInit() {
     this.exercise = this.navParams.get('exercise')
     this.sets = this.exercise.sets
-    // this.index = this.navParams.get('index')
-    console.log(this.exercise)
   }
 
   /**
@@ -59,13 +57,9 @@ export class ExercisePage implements OnInit {
   * Params:
   */
   closeModal(){
-    // console.log(this.exercise)
-    // console.log(this.exercise.maxRep = this.calculateMaxRep(this.sets))
-    // console.log(this.calculateTotalWeight(this.sets))
     this.exercise.sets = this.sets
-    this.exercise.maxRep = this.exercise.maxRep = this.calculateMaxRep(this.sets)
+    this.exercise.repMax = this.calculateMaxRep(this.sets)
     this.exercise.totalWeight = this.calculateTotalWeight(this.sets)
-    console.log(this.exercise)
     this.modalController.dismiss(this.exercise);
     }
 
@@ -75,7 +69,6 @@ export class ExercisePage implements OnInit {
   */
   addSet(){
     this.exercise.sets.push({value: 0, reps: 0})
-    console.log(this.exercise)
   }
 
   /**
@@ -83,7 +76,7 @@ export class ExercisePage implements OnInit {
   * Params:
   */
   deleteSet(index) {
-    if (confirm(`Are you sure you want to remove set ${this.exercise.sets[index]} form your workout?`)) {
+    if (confirm(`Are you sure you want to remove set from your workout?`)) {
       this.exercise.sets.splice(index, 1);
     }
   }

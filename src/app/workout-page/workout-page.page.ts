@@ -24,10 +24,13 @@ export class WorkoutPagePage implements OnInit {
   index: number;
   // Initialises current date
   date = new Date();
+  dateFormatted = `${this.date.getDate()}/${this.date.getMonth()}/${this.date.getFullYear()}`
   workout;
   workouts;
   exercises;
   sessionExercises;
+  session = []
+  sessionHistory = []
 
   testEx;
 
@@ -38,7 +41,7 @@ export class WorkoutPagePage implements OnInit {
     this.workout = await this.route.snapshot.paramMap.get('workout')
     this.workouts = await this.storage.get("workouts")
     this.exercises = await this.storage.get("exercises")
-    console.log(this.workout)
+    this.sessionHistory = await this.storage.get("sessionHistory")
     switch(this.workout){
       case 'Pull 1':
         this.sessionExercises = this.workouts[0].exercises
@@ -64,8 +67,9 @@ export class WorkoutPagePage implements OnInit {
 
     modal.onDidDismiss()
     .then((retval) => {
-      this.testEx = retval.data
-      console.log("testEx", this.testEx)
+      console.log(this.exercises)
+      this.exercises.find(exercise => exercise.title === retval.data.title).repMax.push({date: this.dateFormatted, max: retval.data.repMax})
+      this.session.push(retval.data)
     });
 
     return modal.present();
@@ -76,7 +80,17 @@ export class WorkoutPagePage implements OnInit {
 * Params:
 */
   logWorkout(){
-    alert('Workout has been logged')
+    this.saveSession()
+    this.saveExercise()
+  }
+
+  async saveSession() {
+    this.sessionHistory.push(this.session)
+    this.sessionHistory = await this.storage.set('sessionHistory', this.sessionHistory)
+  }
+
+  async saveExercise() {
+    this.exercises = await this.storage.set('exercises', this.exercises)
   }
 
 }

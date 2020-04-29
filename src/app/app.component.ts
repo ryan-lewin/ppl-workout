@@ -28,10 +28,9 @@ export class AppComponent {
       this.splashScreen.hide();
     });
 
-    if(await this.storage.get("workouts") != null) {
+    if(await this.storage.get("workouts") == null) {
       let d = new Date()
       let date = `${d.getDate()}/${d.getMonth()}/${d.getFullYear()}`
-      date = 
       await this.storage.set("workouts", 
         [
           {
@@ -70,13 +69,13 @@ export class AppComponent {
         ])
     }
 
-    if(await this.storage.get("exercises") != null) {
+    if(await this.storage.get("exercises") == null) {
       let d = new Date()
       let date = `${d.getDate()}/${d.getMonth()}/${d.getFullYear()}`
       await this.storage.set("exercises", 
       [
         {title: "Deadlift", repMax: [{date:date ,max: 150}]},
-        {title: "Wide Grip Lat Pull Down", repMax: [{date:date ,max: 150}]},
+        {title: "Wide Grip Pulldowns", repMax: [{date:date ,max: 150}]},
         {title: "Face Pulls", repMax: [{date:date ,max: 150}]},
         {title: "Hammer Curls", repMax: [{date:date ,max: 150}]},
         {title: "Dumbbell Curls", repMax: [{date:date ,max: 150}]},
@@ -91,6 +90,10 @@ export class AppComponent {
         {title: "Leg Curls", repMax: [{date:date ,max: 150}]},
         {title: "Calf Raises", repMax: [{date:date ,max: 150}]},
       ])
+    }
+
+    if(await this.storage.get("sessionHistory") == null) {
+      await this.storage.set("sessionHistory", [])
     }
 
   }
