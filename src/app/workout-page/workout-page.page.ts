@@ -3,6 +3,9 @@ import {ModalController } from '@ionic/angular'
 import { ExercisePage } from '../exercise/exercise.page';
 import { Storage } from '@ionic/storage'
 import { ActivatedRoute } from '@angular/router'
+import { WorkoutService } from '../workout.service'
+import { ExercisesService } from '../exercises.service';
+import { SessionService } from '../session.service'
 
 @Component({
   selector: 'app-workout-page',
@@ -10,15 +13,6 @@ import { ActivatedRoute } from '@angular/router'
   styleUrls: ['./workout-page.page.scss'],
 })
 export class WorkoutPagePage implements OnInit {
-
-  // Initialises array of dummy data to be used in the view in place of DB
-  // exercises = [
-  //   {name: 'Barbell Deadlift', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false, totalWeight: 0, maxRep: 0},
-  //   {name: 'Wide Grip Lat Pulldown', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false, totalWeight: 0, maxRep: 0},
-  //   {name: 'Cable Seated Row', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false, totalWeight: 0, maxRep: 0},
-  //   {name: 'Dumbbell Hammer Curl', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false, totalWeight: 0, maxRep: 0},
-  //   {name: 'Dumbbell Bicep Curl', sets: [{number: 1, weight: 0, reps: 0},{number: 2, weight: 0, reps: 0},{number: 3, weight: 0, reps: 0}], complete: false, totalWeight: 0, maxRep: 0},
-  // ]
 
   // Initialises index number to keep track of user selected place in exercises array
   index: number;
@@ -35,13 +29,20 @@ export class WorkoutPagePage implements OnInit {
   testEx;
 
   constructor(
-    private modalController:ModalController, private storage: Storage, private route: ActivatedRoute) { }
+    private modalController:ModalController, 
+    private storage: Storage, private route: ActivatedRoute,
+    private workoutService: WorkoutService,
+    private exerciseService: ExercisesService,
+    private sessionService: SessionService,
+    ) { }
 
   async ngOnInit() {
+    this.workouts = this.workoutService.getWorkouts()
+    this.exercises = this.exerciseService.getExercises()
+    this.sessionHistory = this.sessionService.getSessions()
+
     this.workout = await this.route.snapshot.paramMap.get('workout')
-    this.workouts = await this.storage.get("workouts")
-    this.exercises = await this.storage.get("exercises")
-    this.sessionHistory = await this.storage.get("sessionHistory")
+    // this.sessionHistory = await this.storage.get("sessionHistory")
     switch(this.workout){
       case 'Pull 1':
         this.sessionExercises = this.workouts[0].exercises
@@ -67,7 +68,6 @@ export class WorkoutPagePage implements OnInit {
 
     modal.onDidDismiss()
     .then((retval) => {
-      console.log(this.exercises)
       this.exercises.find(exercise => exercise.title === retval.data.title).repMax.push({date: this.dateFormatted, max: retval.data.repMax})
       this.session.push(retval.data)
     });
@@ -80,17 +80,18 @@ export class WorkoutPagePage implements OnInit {
 * Params:
 */
   logWorkout(){
-    this.saveSession()
-    this.saveExercise()
+    // this.saveSession()
+    this.exerciseService.saveExercise(this.exercises)
+    this.sessionService.saveSessions(this.session)
   }
 
-  async saveSession() {
-    this.sessionHistory.push(this.session)
-    this.sessionHistory = await this.storage.set('sessionHistory', this.sessionHistory)
-  }
+  // async saveSession() {
+  //   this.sessionHistory.push(this.session)
+  //   this.sessionHistory = await this.storage.set('sessionHistory', this.sessionHistory)
+  // }
 
-  async saveExercise() {
-    this.exercises = await this.storage.set('exercises', this.exercises)
-  }
+  // async saveExercise() {
+  //   this.exercises = await this.storage.set('exercises', this.exercises)
+  // }
 
 }

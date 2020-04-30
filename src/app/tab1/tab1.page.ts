@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
+import { WorkoutService } from '../workout.service'
 
 @Component({
   selector: 'app-tab1',
@@ -9,26 +10,15 @@ import { Router } from '@angular/router';
 })
 export class Tab1Page {
 
-  constructor(private storage: Storage, private router: Router) {}
+  constructor(
+    private storage: Storage, 
+    private router: Router,
+    private workoutService: WorkoutService
+    ) {}
 
-  workouts;
+  workouts: Array<object>
 
   async ngOnInit() {
-    this.workouts = await this.storage.get("workouts")
+    this.workouts = this.workoutService.getWorkouts()
   }
-
-  goToWorkoutPage() {
-    
-  }
-  
-// Initialises array of dummy data to display workouts to view
-  // workouts = [
-  //   {workout: 'Push 1', date: '01/01/2020'},
-  //   {workout: 'Pull 1', date: '01/01/2020'},
-  //   {workout: 'Legs 1', date: '01/01/2020'},
-  //   {workout: 'Push 2', date: '01/01/2020'},
-  //   {workout: 'Pull 2', date: '01/01/2020'},
-  //   {workout: 'Legs 2', date: '01/01/2020'},
-  // ]
-
 }
