@@ -21,9 +21,8 @@ export class Tab3Page {
   dates;
   maxes;
   selection;
-
-  data = [100, 90, 50, 100, 70, 60, 90]
-  labels = [0, 1, 2, 3, 4, 5, 6]
+  data: Array<number>
+  labels: Array<String>
 
   async ngOnInit() {
     this.exercises = await this.storage.get("exercises")
@@ -40,7 +39,7 @@ export class Tab3Page {
       data: {
         labels: this.dates,
         datasets: [{
-          label: 'Scores',
+          label: 'One Rep Max',
           data: this.maxes,
           backgroundColor: ['rgba(255, 99, 132, 0.2)'],
           borderColor: ['rgba(75, 192, 192, 0.2)',],
