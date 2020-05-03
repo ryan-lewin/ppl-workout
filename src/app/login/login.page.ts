@@ -8,7 +8,8 @@ import { UserService } from '../user.service'
 })
 export class LoginPage implements OnInit {
 
-  user: object;
+  user;
+  imageFile;
 
   constructor(private userService: UserService) { }
 
@@ -19,6 +20,14 @@ export class LoginPage implements OnInit {
 
   saveChanges() {
     this.userService.saveUser(this.user)
-
   }
+
+  imageSelected(files) {
+    let fileReader = new FileReader()
+    fileReader.onload = e => {
+      this.user.image = fileReader.result
+    }
+    fileReader.readAsDataURL(files[0])
+  }
+
 }

@@ -1,61 +1,39 @@
-<ion-header [translucent]="true">
-  <app-head title="User"></app-head>
+
+<ion-header>
+  <app-head title="User Information"></app-head>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <h2>Update information</h2>
-
+<ion-content>
+  <div id="profile-pic">
+    <img src="{{user.image}}" alt="">
+  </div>
   <ion-item lines="none">
-    <!-- <ion-label position="stacked">Name</ion-label> -->
-    <ion-input type="text" [(ngModel)]="user.username" name="user.username"></ion-input>
-  </ion-item>
-
-  <ion-thumbnail>
-    <ion-img src="data:image/jpeg;base64,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"></ion-img>
-  </ion-thumbnail>
-
-  <ion-item lines="none">
-    <ion-label position="stacked">Date of Birth</ion-label>
-    <ion-datetime [(ngModel)]="user.dob" name="user.dob"></ion-datetime>
-  </ion-item>
-
-  <ion-item lines="none">
-    <ion-label position="stacked">Email</ion-label>
+    <ion-input id="name" type="text" [(ngModel)]="user.username" name="user.username"></ion-input>
     <ion-input type="text" [(ngModel)]="user.email" name="user.email"></ion-input>
   </ion-item>
-
   <ion-item lines="none">
-    <ion-label position="stacked">Start Weight</ion-label>
-    <ion-input type="number" [(ngModel)]="user.startWeight" name="user.startWeight"></ion-input>
+    <ion-label>Date of Birth</ion-label>
+    <ion-datetime [(ngModel)]="user.dob" name="user.dob"></ion-datetime>
   </ion-item>
-
+  <!-- <ion-item lines="none">
+    <ion-label>Email:</ion-label>
+    <ion-input type="text" [(ngModel)]="user.email" name="user.email"></ion-input>
+  </ion-item> -->
   <ion-item lines="none">
-    <ion-label position="stacked">Goal Weight</ion-label>
-    <ion-input type="number" [(ngModel)]="user.goalWeight" name="user.goalWeight"></ion-input>
+    <ion-label>Start Weight:</ion-label>
+    <ion-input slot="end" type="number" [(ngModel)]="user.startWeight" name="user.startWeight"></ion-input>
   </ion-item>
-
+  <ion-item lines="none">
+    <ion-label>Goal Weight:</ion-label>
+    <ion-input slot="end" type="number" [(ngModel)]="user.goalWeight" name="user.goalWeight"></ion-input>
+  </ion-item>
   <ion-item lines="none">
     <ion-label>Subscribe to newsletter?</ion-label>
     <ion-checkbox [(ngModel)]="user.subscribed"></ion-checkbox>
   </ion-item>
-
-  <ion-button (click)="saveChanges()" class="ion-margin" expand="block">Save Changes</ion-button>
-
-
-  <!-- <ion-grid>
-    <ion-col>
-      <h2>Upload Image</h2>
-      <input #fileInput type="file" accept="image/*" (change)="imageSelected(fileInput.files)">
-    </ion-col>
-    <ion-input>
-      <img id="user-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADDCAMAAACxkIT5AAAAeFBMVEX///+8vb+9vb+9vb26urrAwMDm5ua3uLr8/P3R0tT29va3t7fLy82+v8G5ubn5+fnj4+Pt7e3a2trq6urX19fNzc3GxsaJiYmYmJisrKyenp5+fn6IiIjOz9Hw8fOmpqaUlJRzc3Nra2s8PDxsbGxjY2NPT08hISG1W8UsAAALL0lEQVR4nO2dC3+ivBKHg0m4pSTcEi61Wvc97znf/xueSdCWtqCAgMXNf3/drYoseZyZTCYJImRlZWVlZWVlZWVlNVy+/+grWEJP2agl9aRm4CNfDD5aCP9JNRxBLl+eUEpKFSQDGYSK7Z5QGBOiDkMZUPzo611CwIDi0DKwDCwDy2A8A0rgHXnwNEolw6MZcIy5O/D4Lcjl9C9n4KPY2gHKsJrI4NHp/UyCNsWMTImJT2UHU+IBHM+eigGzDCwDy0DLMrAMtCwDy0DLMrAMtCwDy0DLMrAMtCwDy0DLMrAMtJ6Bgd/x2xg9F4Np2joDXySx6yahuGON0LYZhKlUmDPGsJLp0CUUP7RZBj7yYwmXQvBZlMpkmltslgEKc8o/AGhxpuLha8ta2iwDVzLeJkApZozIoe34cqptMhAuJvpCvlCAH6aGLi5raZsM/Fhx+ORJiwHhxhgqNT4kbJABNDJT4AiEU/rFGXYEGsJkOJbCJhmEElOnU9AWlo894QYZID+FQNDHAPPRIWGLDBIIBv0MCJEjnWGLDFLw+x5foNAUTkcawgYZhJLhXgYcK0zScSfcIANXAYN+X4DLU+PSxQ0yiOHDvsJAYxg3fNogg5SSGwxwNuqE22MgAtPMawx4PGoAuT0GodQr6a4zSJ+fAb1hByR/dgYBoZySv5qBCBhkQlcZ0HEJwvYY+KlOka4xIHhcorg9BsjVXeO1eEDwU+dI2s1DBR1D79hZM5CX1djDtDEGRpJj1sOAKwxjyngMgW0yiElv32i6zb9g3IiEZKonJu50VTHwx80zbJEByljfeIHq0nI4cgpykwz8nPf1jXB5MfobGCCBWV+/wHNhCDx5vwA6wMCJ6IkmYpKFJivQpXUcjJ9u2ygDP9FVM7gWeplsMrMNnAUTJts2ygAsIeectifcgACnkyZdN8tAz7cRwlu+wLgcVz+6aLsMziswmEmLwBhUEE+ZdEYPZmAMd+KFGx3cXCpFlZJBmn24wabmG80IKM8uv047Rxgmh1Dcsy7rkQwMAsn0aH/cIGdmPdgOYBxMWHNDmsdBeGxM1KUAxSsV+38tg0QxHdApV8nIod5Fs4B7EANz7YfIiyLHgR8SZV9eWVePYWBM//AWOdFlsGMWTjwoMD7OF8SLtgLPEIB/Xx4XGB/mC4c3z7kgcBwv8pykeWF9PcoXwsYKPhgoj71kD+odVmfQ+PzhRX/y3mc8gF89NW3Ic7fWZ6DTenCEKPKcr4omLTKdQWszMFYQqlaP0CqImmV166fNj4gHB+U5bT/4KAby89rClSE8gIFQ2ITDHwwYVczEhJUtYX0GkCDTJiX4zoCYEqlOm5+XQdMjqMYAOuKB4+ycnbd+2rwiA9Ok5K2n+Z9a3R1W9gVIjW4hiJq0eUUI6zI4aAQd0bAteDW6r7w2VqsyOHxNkHsYKKdaN21ek0H44mgAPzPEbxDOafOTMTDOnRgrGCb2uY5ieRSrMDCVf9GdIHdrR1ZMm1fzhYPsTpB7xNl6afNaDEKdIHuDGXhYsdXKa6sw8FEiGR7sCIYB5Zyu1DsszUCXC3zoFJvVtcMx7IjuJccVVWCgkZglKKPetQIDbc2HwBncI3yxhpdxabOf4njosS2twACsABBMYQB5wvC0Gf6nHDMyIXFZPB74KHzTadH1BLnHDs4DqGHW7eccIikfX5RcPiaaBDka3iu2GaioioYGRiE5xYwyMhrC4gwgQdatv5Ug90DwmhmoIQxSThlWFP4aGxMWZGDcWJdMpoSCFgdyO22GWBC07gjxa/Z4imYqZVo0bGmHByRL0CO0b4UwLjAu6Qt6k762gjspkFtp8zcr0BBGucOSvqDvU6DrBfcxIESdR5G9EET+5aYgGLNREJa0A73W6F5P0AwoDKCu9Q4i+IaAY0LiR69XbsqnEusE+W4KhGPKetNmnRo5kd7YciHgUAqm4wyHsAgDs5toaoLcLe+lzx38tPsddLA7LMFAfxFg0yPMxyDyokNHUUWHw57tHMNjwkJ2AD7qTEwO+9QMoL5bgt7t2H085UO3vy/D4LLEYj4GTdr8g4HQm5+73wFpM3MHxYRlYmL4Zgro0xLkfkXfl/DBMAly413nwXpr07CMcW4GohksX5lTnE7AIbQ9F2kGy/23AdiZ14b0DjMzuCy6mzEatvU1bb4kyD3HNtnSgMC4gC+IN5MgL8GAMHnpIrUVkNsMyICh9NwMzgmyd+9osVtccfwB4SM7vMaADugiZ7cDSJDpQp5gGDDZpM0CwiElt30B/tzK6+dmcIDOis/fI5zVSpsDQgmjVxg4ZztQ7FZMmI9BUzJ5mzUv6pRenyDSMYxvVJZmY3BZdLdUl9CSp7J4lJndqDbP6gtgBbvlETidi9quicJQeiUGoZpcQR6lKOpY1HZNBF+tNs/IAKxgyiTCaEWjaxKRvolMvyXMxyA8V5DXwDDyf4EmXhtFzsbgECyUG86hpsLWN4Cai0EYeCv0CFPVpEt9MWEmBpAaLZUXzaFLtdntrMvOwyAJCDFb1B7d2B41CGhP2jwLg1Dfi8D5vQgaBgr3zEXeyWC1BHkudVWb72NgvEu8qLFJy+PkdXSR9/tCs77g0W0bql1H73A3g9AstNmMM+zoz1uJ3cvg0CzG344ldATG6Qya8umlgrwVBDtCMKdf3eEOO2jmFLfiBBc11aUvXfsdDAQKZRMLtiTDoCJua2HLPb4gpN6MsDFDuFSbW+4wmYEuorPdb06Qu9Uw0IXWOexA6orulnIDo/PUS7vkPoGBmUBxw5WqRsspcs/3GIw9bywD/XYvzyNvOz1ij855ghtFYxnsIr2Y2ljDthmwKEiDt7cccpzRdqAZRBtKDXukZ0W19Nrw0fEgMhawvS7hhwCCUuajHMdAESfyzpnRxhF4zX5T/aMnb+lQBgfFupe+bFtEf7fVcDtgOhI8myi93LpuEIOKec8nwhgbfItykcvgCaVblQ++o6fwn1LCF5O+B9XKysrKysrKysrKysrKysrK6l41e8/0b+LzmS6Jq69+O+XWdK5OhdXliUOM4mbe/9IaEXwensob5/PxSSHEyzpJ6tcqyffFSdLX9z8iLcsQyfooEd8zhIKidsOyrsZ94/liCoM8Rq9xmoQ5cjO1T+s6c9MgQXnqZkHgxq95mMIh8FcmcRgAGwGPwziPxSEP0lQ286JmKz2KoZX+6YAJPNinCCUFNDMufD/fC1HE+R54H5F7QqpCcVLcYrq8zMR2Wucp+odUNDsiqoL3uKxcJtU7+hfH5Jhm6UnKmhRC1TzOGa/AcmSJ0+BI6hhe2+PqXZ8rLrE5H6MoK1BaorTQDHANz9VgZuFrKIo0/g9YQ4nCk5B7YFaoRza/kV7wE++pRCfkVlmJpIorxOLs3/JYo1cw2ZLGYY2OKSplkcDj/x7120rdODhQ5gwVWVjo59T//hi/qhQ0V3/yyC/hUy70joTXWDMQKD0e/wAD8AVVv8PjI/sFhWJtvwdfvmsGR2hLpdwj4tIvY5TBcyjxKxaWqOL+PgMjR3ldBShGDFohj6jOgUGZJSd9qlCZ/RdCwUd7CgmFOAoffwosEC2hqVmdgJ3kpY/UUX/zF1dwmt8QQXXHEL8eCapRXIn6WMqsqNQey6LgqISrL8pAFGX8XkBz6gLLID7SY5jVZZUc3+swVYhnYf15vlCd/iiE34ssLvZVhhSBZxXQS4t/j6Eq3nOEX0/UZXuImqfTu/oFFC63shGfdy04/yuGfEubL/Q72weG7XNcTt62+O+NfuS3f52voP+R+Ni/f+MqP1++6yvZnkKmlxkf5H4Bt/ls0e8+2eJt/D9eBBVClKybngAAAABJRU5ErkJggg==" alt="">
-    </ion-input>
-  </ion-grid> -->
-  
+  <ion-item line="none">
+    <ion-label position="stacked">Change Profile Picture</ion-label>
+    <input #fileInput type="file" accept="image/*" (change)="imageSelected(fileInput.files)">
+  </ion-item>
+  <ion-button (click)="saveChanges()" class="ion-margin-top" expand="block">Save Changes</ion-button>
 </ion-content>

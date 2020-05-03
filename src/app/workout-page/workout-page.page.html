@@ -1,14 +1,8 @@
-<ion-header [translucent]="true">
-  <app-head title="User"></app-head>
+<ion-header>
+  <app-head title=""></app-head>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Pull Day 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
+<ion-content>
   <ion-item>
     <ion-label>Date</ion-label>
     <ion-datetime value="{{date}}" placeholder="Select Date"></ion-datetime>
@@ -23,7 +17,5 @@
       <ion-icon (click)="presentModal(i)" name="add-outline"></ion-icon>
     </ion-item>
   </ion-list>
-
   <ion-button (click)="logWorkout()" class="ion-margin" expand="block" routerLink="">Finish Workout</ion-button>
-
 </ion-content>

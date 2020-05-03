@@ -1,5 +1,7 @@
 {
   "name": "ppl_workout",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

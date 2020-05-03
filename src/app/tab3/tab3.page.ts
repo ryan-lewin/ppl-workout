@@ -46,6 +46,18 @@ export class Tab3Page {
           borderWidth: 5
         }]
       },
+      options: {
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [{
+              ticks: {
+                  display: false //this will remove only the label
+              }
+          }]
+        }
+      },
     })
   }
 

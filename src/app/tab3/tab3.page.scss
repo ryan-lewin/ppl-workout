@@ -1,3 +1,13 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+
+#chart-container {
+  margin: 2em .7em 1em 0em;
+  height: 300;
+  width: 300;
+}
+
+#choice {
+  margin: 1em;
+}

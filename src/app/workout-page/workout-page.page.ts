@@ -53,6 +53,15 @@ export class WorkoutPagePage implements OnInit {
       case 'Legs 1':
         this.sessionExercises = this.workouts[2].exercises
         break
+      case 'Pull 2':
+        this.sessionExercises = this.workouts[3].exercises
+        break
+      case 'Push 2':
+        this.sessionExercises = this.workouts[4].exercises
+        break
+      case 'Legs 2':
+        this.sessionExercises = this.workouts[5].exercises
+        break
     }
   }
 

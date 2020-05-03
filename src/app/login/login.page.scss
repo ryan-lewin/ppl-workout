@@ -1,0 +1,21 @@
+img {
+    width: 45vw;
+    height: 45vw;
+    border-radius: 50%;
+}
+
+#profile-pic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .5em;
+}
+
+#name {
+    font-weight: bold;
+    text-align: center;
+}
+
+ion-label {
+    font-size: .9em;
+}
