@@ -24,13 +24,16 @@ export class Tab3Page {
   data: Array<number>
   labels: Array<String>
 
+  //Calls on init and creates chart with deadlift as defaul
   async ngOnInit() {
     this.exercises = await this.storage.get("exercises")
     this.sessionHistory = await this.storage.get("sessionHistory")
     this.makeChart('Deadlift')
   }
 
+    //Crates chart using data from exercises service - Displays one rep max details with date range
   async makeChart(exerciseTitle) {
+    this.exercises = await this.storage.get("exercises")
     this.label = await this.exercises.filter(obj => {return obj.title === exerciseTitle})
     this.dates = await this.label[0].repMax.map(element => element.date)
     this.maxes = await this.label[0].repMax.map(element => element.max)

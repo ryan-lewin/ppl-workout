@@ -93,14 +93,5 @@ export class WorkoutPagePage implements OnInit {
     this.exerciseService.saveExercise(this.exercises)
     this.sessionService.saveSessions(this.session)
   }
-
-  // async saveSession() {
-  //   this.sessionHistory.push(this.session)
-  //   this.sessionHistory = await this.storage.set('sessionHistory', this.sessionHistory)
-  // }
-
-  // async saveExercise() {
-  //   this.exercises = await this.storage.set('exercises', this.exercises)
-  // }
-
+  
 }

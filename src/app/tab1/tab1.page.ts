@@ -18,6 +18,7 @@ export class Tab1Page {
 
   workouts: Array<object>
 
+  //Calls for workouts data from service on init
   async ngOnInit() {
     this.workouts = this.workoutService.getWorkouts()
   }

@@ -10,6 +10,7 @@ export class UserService {
 
   constructor(private storage: Storage) { }
 
+  //Sets user details to dummy data if no user exists
   async setUser() {
     if(await this.storage.get("user") == null) {
       await this.storage.set("user", {
@@ -19,16 +20,18 @@ export class UserService {
         goalWeight: 85,
         dob: '1991-01-25',
         subscribed: true,
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT0DaNhgssBkLLF-MgdKp-XTZ_9bovA9feqX_Bjdbz4-munqHbq&usqp=CAU'
+        image: 'https://img.icons8.com/plasticine/2x/user.png'
       })
     }
     this.user = await this.storage.get("user")
   }
 
+  //Returns user when called
   getUser() {
     return this.user
   }
 
+  //Saves user data when updated
   saveUser(data) {
     this.storage.set("user", this.user)
   }

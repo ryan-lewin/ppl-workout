@@ -16,8 +16,6 @@ export class ExercisePage implements OnInit {
   exercise;
   sets = [];
   num = 0;
-  //Initialises empty number var that will take the index var passed from previous page
-  // index;
 
   /**
   * Initialises exercises and index with values passed from workout-page

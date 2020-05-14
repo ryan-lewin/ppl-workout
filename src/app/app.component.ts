@@ -34,15 +34,10 @@ export class AppComponent {
       this.splashScreen.hide();
     });
 
-    this.workoutService.setWorkouts()
+    // this.workoutService.setWorkouts()
     this.exerciseService.setExercises()
     this.sessionService.setSessions()
     this.userService.setUser()
-
-
-    // if(await this.storage.get("sessionHistory") == null) {
-    //   await this.storage.set("sessionHistory", [])
-    // }
 
   }
 }

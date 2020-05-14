@@ -10,6 +10,7 @@ export class ExercisesService {
 
   exercises: Array<object>;
 
+  //Sets up storage if none existing - Adds dummy data
   async setExercises() {
     if(await this.storage.get("exercises") == null) {
       let d = new Date()
@@ -96,11 +97,14 @@ export class ExercisesService {
     this.exercises = await this.storage.get("exercises")
   }
 
+  //Returns data stored in exercises storage when caled
   getExercises() {
     return this.exercises
   }
 
+  //Saves new data to exercises when called
   async saveExercise(data) {
+    console.log(data)
     this.exercises = await this.storage.set('exercises', data)
   }
 
